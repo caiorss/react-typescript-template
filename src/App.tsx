@@ -2,6 +2,8 @@ import React, { useState, useRef  } from 'react';
 import List from "./components/List";
 import { ItunesTypes, Result } from "./ItunesInterfaces"
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 interface RequestResult {
    res: Response;
    data: JSON;
@@ -40,6 +42,7 @@ function App() {
     let res = await request_get(url);
     console.log(res.data);
     let dat =  res.data as ItunesTypes;
+
     setResults(dat.results || []);
   }
 
@@ -50,10 +53,10 @@ function App() {
 
   return (
     <>
-      <h1>Search Itunes API</h1>
-      <input ref={refSearch} type="text" />
-      <button onClick={search} >Search</button>
-      <button onClick={clear} >Clear</button>
+      <h1 className="text-center text-uppercase" >Search Itunes API</h1>
+      <input className="form-control" ref={refSearch} type="text" />
+      <button className="btn btn-primary" onClick={search} >Search</button>
+      <button className="btn btn-primary" onClick={clear} >Clear</button>
       <List results={results} />
     </>
 

@@ -16,9 +16,9 @@ const List: React.FC<IProps> = ( { results } ) => {
     const renderList = (): JSX.Element[] => {
         return results.map( (res: Result) => {
             return (
-              <div key={uuidv4()}>
+              <div key={uuidv4()} className="container">
                 <hr></hr>
-                <table>
+                <table className="">
                     <tr>
                         <td>Artist</td>
                         <td> <a href={res.artistViewUrl}>{res.artistName}</a> </td>
