@@ -4,7 +4,8 @@ import { ItunesTypes, Result } from "./ItunesInterfaces"
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-interface RequestResult {
+interface RequestResult 
+{
    res: Response;
    data: JSON;
 }
@@ -24,7 +25,8 @@ async function request_get(url: string): Promise<RequestResult>
     return {res: res, data: data};
 }
 
-interface IState{
+interface IState
+{
    results: Result[]
 }
 
@@ -34,7 +36,8 @@ function App() {
 
   const refSearch = useRef<HTMLInputElement>(null);
 
-  async function search(){
+  async function search()
+  {
     // let input = refSearch.current as any; // as HTMLInputElement;
     let entry = refSearch.current?.value; //input === null ? "" : input.value;
 
@@ -46,7 +49,8 @@ function App() {
     setResults(dat.results || []);
   }
 
-  function clear(){
+  function clear()
+  {
     setResults([]);
     if( refSearch.current != null){ refSearch.current.value = ""; }
   }
